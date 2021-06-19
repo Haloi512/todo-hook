@@ -282,7 +282,7 @@ export default function TodoList({ handleProgress, ...props }) {
                     Add Task
                   </Button>
                   <Button
-                    className="group-btn__delete"
+                    className="group-btn__delete--all"
                     type="primary"
                     danger
                     onClick={handleDeleteAllOfSelected}
@@ -348,7 +348,7 @@ export default function TodoList({ handleProgress, ...props }) {
           </Form.Item>
 
           <Form.Item>
-            <Button type="primary" htmlType="submit">
+            <Button className="btn-update" type="primary" htmlType="submit">
               Update
             </Button>
             <Button

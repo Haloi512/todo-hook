@@ -1,5 +1,5 @@
 import React from "react";
-import { mount, shallow, render } from "enzyme";
+import { mount, shallow, render, simulate } from "enzyme";
 import axios from "axios";
 import { act } from "react-dom/test-utils";
 import TableComponent from "./table";
@@ -7,6 +7,7 @@ import { Button } from "antd";
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 
 import TodoList from "./index";
+import { wrap } from "yargs";
 
 jest.mock("axios");
 
@@ -35,6 +36,7 @@ const columns = [
             Edit
           </Button>
           <Button
+          id="group-btn__delete"
             className="group-btn__delete"
             style={{ marginLeft: "5px" }}
             type="primary"
@@ -73,7 +75,7 @@ describe("fetch data", () => {
     jest.clearAllMocks();
   });
 
-  test("should be return data in the first mount, useEffect have arr dependency", async () => {
+  test("should be return data in the first mount, useEffect with arr dependency", async () => {
     // mock axios promise
     await act(async () => {
       await axios.get.mockResolvedValue(data);
@@ -81,15 +83,12 @@ describe("fetch data", () => {
     });
     await wrapper.update();
     await expect(axios.get).toBeCalledTimes(1);
-   
   });
 
-  test("should be return table when have daa", () => {
-    render(<TodoList />);
+  test("should be remove table when delete enter button delete", async () => {
     const table = mount(<TableComponent dataSource={data} columns={columns} />);
-    render(<TableComponent dataSource={data} columns={columns} />);
-    const button = table.find(".group-btn__edit")
-    button.simulate("click");
-    expect(mockCallBack.mock.calls.length).toEqual(1);
-  })
+    console.log(table.find("#group-btn__delete").debug());
+    table.find("#group-btn__delete").simulate("click");
+    await expect(axios.delete).toBeCalled(true);
+  });
 });
