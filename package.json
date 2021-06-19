@@ -3,18 +3,29 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@tanem/react-nprogress": "^3.0.69",
     "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
+    "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.1.10",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "antd": "^4.16.3",
+    "axios": "^0.21.1",
+    "concurrently": "^6.2.0",
+    "coverage": "^0.4.1",
+    "json-server": "^0.16.3",
+    "node-sass": "^4.3.0",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "react-toastify": "^7.0.4",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
+    "start-dev": "concurrently \"yarn:start\" \"json-server --watch db.json --port 3004\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test-jest": "jest",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -34,5 +45,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.6",
+    "jest": "26.6.0",
+    "jest-enzyme": "^7.1.2"
   }
 }

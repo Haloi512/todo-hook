@@ -1,0 +1,118 @@
+.app {
+  font-family: "Poppins", sans-serif;
+  .navbar {
+    height: 100px;
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    .logo {
+      width: 70px;
+      height: 70px;
+      margin-left: 50px;
+    }
+    .group-link {
+      font-size: 20px;
+      width: 180px;
+      display: flex;
+      justify-content: space-around;
+      margin-left: 50px;
+      font-weight: bold;
+      &__home {
+        color: #000;
+        letter-spacing: 0;
+
+        &:hover,
+        &:active {
+          // letter-spacing: 5px;
+        }
+
+        &:after,
+        &:before {
+          backface-visibility: hidden;
+          border: 1px solid rgba(#fff, 0);
+          bottom: 0px;
+          content: " ";
+          display: block;
+          margin: 0 auto;
+          position: relative;
+          transition: all 280ms ease-in-out;
+          width: 0;
+        }
+
+        &:hover:after,
+        &:hover:before {
+          backface-visibility: hidden;
+          border-color: #e21e26;
+          transition: width 350ms ease-in-out;
+          width: 100%;
+        }
+
+        &:hover:before {
+          bottom: auto;
+          top: 0;
+          width: 100%;
+          border-color: #e21e26;
+        }
+      }
+      &__list {
+        color: #000;
+        letter-spacing: 0;
+
+        &:hover,
+        &:active {
+          // letter-spacing: 5px;
+        }
+
+        &:after,
+        &:before {
+          backface-visibility: hidden;
+          border: 1px solid rgba(#fff, 0);
+          bottom: 0px;
+          content: " ";
+          display: block;
+          margin: 0 auto;
+          position: relative;
+          transition: all 280ms ease-in-out;
+          width: 0;
+        }
+
+        &:hover:after,
+        &:hover:before {
+          backface-visibility: hidden;
+          border-color: #e21e26;
+          transition: width 350ms ease-in-out;
+          width: 100%;
+        }
+
+        &:hover:before {
+          bottom: auto;
+          top: 0;
+          width: 100%;
+          border-color: #e21e26;
+        }
+      }
+    }
+  }
+  .ant-layout-content {
+    min-height: calc(100vh - 150px);
+    margin-top: 100px;
+    z-index: 1;
+    background: #fff;
+  }
+
+  .footer {
+    height: 100px;
+    background: linear-gradient(
+      270deg,
+      #e30613 0%,
+      #8d325d 62.5%,
+      #6a1f7a 100%
+    );
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
